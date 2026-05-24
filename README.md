@@ -28,29 +28,6 @@ Live demo : https://taskflow-puce-pi.vercel.app/
 
 Note: the original screening brief asks for a relational database provider. This implementation currently uses MongoDB Atlas because the existing project was already built around Mongoose.
 
-## AI Tools Used
-
-- OpenAI Codex was used to inspect the project, add authentication, add theme support, normalize typography, and update documentation.
-
-## Project Structure
-
-```text
-taskflow/
-  backend/
-    middleware/auth.js
-    models/Task.js
-    models/User.js
-    routes/auth.js
-    routes/tasks.js
-    server.js
-  frontend/
-    src/components/
-    src/hooks/useTasks.js
-    src/utils/api.js
-    src/styles/globals.css
-    src/App.jsx
-```
-
 ## Setup
 
 ### Prerequisites
