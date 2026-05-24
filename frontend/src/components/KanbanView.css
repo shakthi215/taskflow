@@ -1,0 +1,90 @@
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.kanban__col {
+  background: color-mix(in srgb, var(--surface-solid) 76%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.kanban__col.is-over {
+  border-color: var(--col-color);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--col-color) 30%, transparent),
+    var(--shadow-lg);
+}
+
+.kanban__col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--border);
+  border-top: 4px solid var(--col-color);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--col-color) 13%, transparent), transparent 52%),
+    color-mix(in srgb, var(--surface-solid) 74%, transparent);
+}
+
+.col-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.col-count {
+  background: var(--surface3);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 12px;
+}
+
+.kanban__cards {
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
+}
+
+.kanban__draggable {
+  touch-action: none;
+}
+
+.kanban__draggable.is-dragging {
+  opacity: 0;
+}
+
+.kanban__overlay {
+  width: min(360px, calc(100vw - 32px));
+  cursor: grabbing;
+  pointer-events: none;
+}
+
+.kanban__overlay .task-card {
+  box-shadow: var(--shadow-lg);
+}
+
+.kanban__empty {
+  text-align: center;
+  padding: 36px 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface2) 64%, transparent);
+}
+
+@media (max-width: 900px) {
+  .kanban {
+    grid-template-columns: 1fr;
+  }
+}

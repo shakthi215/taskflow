@@ -1,0 +1,208 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 20, 0.62);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: color-mix(in srgb, var(--surface-solid) 88%, transparent);
+  border: 1px solid var(--border-light);
+  border-radius: 22px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 0;
+  margin-bottom: 20px;
+}
+
+.modal__header h2 {
+  font-size: 24px;
+  color: var(--text);
+}
+
+.modal__close {
+  background: var(--surface2);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.modal__close:hover {
+  background: var(--surface3);
+  color: var(--text);
+  transform: rotate(4deg);
+}
+
+.modal__form {
+  padding: 0 24px 24px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.required {
+  color: var(--accent-light);
+}
+
+.field__hint {
+  text-transform: none;
+  color: var(--text-dim);
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 14px;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--accent);
+  background: var(--surface-solid);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 92px;
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238792a2' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.field--error input,
+.field--error textarea {
+  border-color: var(--danger);
+}
+
+.field__error {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.status-select {
+  display: flex;
+  gap: 8px;
+}
+
+.status-opt {
+  flex: 1;
+  padding: 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.status-opt:hover {
+  border-color: var(--border-light);
+  color: var(--text);
+}
+
+.status-opt.active.status-opt--todo { background: var(--todo-dim); border-color: var(--todo); color: var(--todo); }
+.status-opt.active.status-opt--in-progress { background: var(--progress-dim); border-color: var(--progress); color: var(--progress); }
+.status-opt.active.status-opt--completed { background: var(--done-dim); border-color: var(--done); color: var(--done); }
+
+.modal__footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.btn {
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.btn--ghost:hover {
+  border-color: var(--border-light);
+  color: var(--text);
+  background: var(--surface2);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  box-shadow: 0 12px 24px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.btn--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 560px) {
+  .field-row,
+  .status-select {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}

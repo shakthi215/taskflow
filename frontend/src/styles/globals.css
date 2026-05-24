@@ -1,0 +1,151 @@
+:root {
+  --bg: #eef3f8;
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-solid: #ffffff;
+  --surface2: #f5f8fc;
+  --surface3: #e7edf5;
+  --border: rgba(103, 119, 143, 0.24);
+  --border-light: rgba(78, 95, 122, 0.36);
+  --text: #172033;
+  --text-muted: #59677c;
+  --text-dim: #8a96a8;
+  --accent: #2563eb;
+  --accent-light: #0ea5e9;
+  --accent-strong: #1d4ed8;
+  --accent-dim: rgba(37, 99, 235, 0.12);
+  --todo: #e11d48;
+  --todo-dim: rgba(225, 29, 72, 0.1);
+  --progress: #d97706;
+  --progress-dim: rgba(217, 119, 6, 0.12);
+  --done: #059669;
+  --done-dim: rgba(5, 150, 105, 0.12);
+  --danger: #dc2626;
+  --low: #4f46e5;
+  --medium: #d97706;
+  --high: #e11d48;
+  --radius: 12px;
+  --radius-sm: 9px;
+  --radius-lg: 16px;
+  --shadow: 0 14px 40px rgba(31, 41, 55, 0.11);
+  --shadow-lg: 0 28px 80px rgba(15, 23, 42, 0.22);
+  --glass: blur(18px) saturate(1.15);
+}
+
+:root[data-theme='dark'] {
+  --bg: #0c1118;
+  --surface: rgba(20, 27, 38, 0.84);
+  --surface-solid: #141b26;
+  --surface2: #192233;
+  --surface3: #243047;
+  --border: rgba(148, 163, 184, 0.18);
+  --border-light: rgba(186, 199, 219, 0.32);
+  --text: #f6f8fb;
+  --text-muted: #b7c1d2;
+  --text-dim: #78869c;
+  --accent: #38bdf8;
+  --accent-light: #818cf8;
+  --accent-strong: #0ea5e9;
+  --accent-dim: rgba(56, 189, 248, 0.15);
+  --todo: #fb7185;
+  --todo-dim: rgba(251, 113, 133, 0.14);
+  --progress: #fbbf24;
+  --progress-dim: rgba(251, 191, 36, 0.13);
+  --done: #34d399;
+  --done-dim: rgba(52, 211, 153, 0.13);
+  --danger: #fb7185;
+  --low: #a5b4fc;
+  --medium: #fbbf24;
+  --high: #fb7185;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 32px 90px rgba(0, 0, 0, 0.56);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 28%),
+    linear-gradient(225deg, color-mix(in srgb, var(--done) 9%, transparent), transparent 32%),
+    linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--surface3) 40%, var(--bg)));
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--border-light) 38%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--border-light) 38%, transparent) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.58), transparent 72%);
+}
+
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: var(--surface2); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+button,
+input,
+textarea,
+select {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.mono {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeUp { animation: fadeUp 0.4s ease forwards; }
+.animate-fadeIn { animation: fadeIn 0.3s ease forwards; }
+.animate-scaleIn { animation: scaleIn 0.25s ease forwards; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--surface3) 50%, var(--surface2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}

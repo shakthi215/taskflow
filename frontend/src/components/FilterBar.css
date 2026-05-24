@@ -1,0 +1,109 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px;
+  background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.filter-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-tabs {
+  display: flex;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+}
+
+.status-tab {
+  padding: 8px 15px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.16s;
+}
+
+.status-tab:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface-solid) 62%, transparent);
+}
+
+.status-tab.active {
+  background: var(--surface-solid);
+  color: var(--text);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.filter-select {
+  background-color: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 30px 9px 13px;
+  font-size: 12px;
+  color: var(--text-muted);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%238792a2' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.filter-select:hover {
+  border-color: var(--border-light);
+  color: var(--text);
+  background-color: var(--surface3);
+}
+
+.order-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.order-btn:hover,
+.order-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  padding: 11px 19px;
+  border-radius: 999px;
+  font-size: 13px;
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+  box-shadow: 0 13px 26px color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+.add-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 17px 32px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
